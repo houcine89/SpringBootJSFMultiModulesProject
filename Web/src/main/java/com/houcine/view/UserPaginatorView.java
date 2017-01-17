@@ -34,21 +34,6 @@ public class UserPaginatorView {
     @Autowired
     private UserRoleService userRoleService;
 
-    private String username;
-
-    private String password;
-
-    private List<String> selectedRoles;
-
-    public void save() {
-        LOG.info("save user: username=" + username + ", selectedRoles=" + selectedRoles.stream().collect(Collectors.joining(",")));
-        if (StringUtils.isNotEmpty(username) && StringUtils.isNotEmpty(password) && !CollectionUtils.isEmpty(selectedRoles)) {
-            userService.createUser(username, password, selectedRoles);
-            RequestContext.getCurrentInstance().reset("form:panel");
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Data Saved"));
-        }
-
-    }
 
     public List<UserDTO> getUsers() {
         return userService.getAllUsers();
@@ -58,27 +43,4 @@ public class UserPaginatorView {
         return userRoleService.getAllRoles();
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public List<String> getSelectedRoles() {
-        return selectedRoles;
-    }
-
-    public void setSelectedRoles(List<String> selectedRoles) {
-        this.selectedRoles = selectedRoles;
-    }
 }

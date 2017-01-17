@@ -19,20 +19,20 @@
                     <p:messages id="messages" />
                     <h:panelGrid columns="3" cellpadding="5">
                         <p:outputLabel for="username" value="Text 1:" />
-                        <p:inputText id="username" value="#{userPaginatorView.username}" required="true" label="User Name">
+                        <p:inputText id="username" value="#{userCreatorView.username}" required="true" label="User Name">
                             <f:validateLength minimum="2" />
                         </p:inputText>
                         <p:message for="username" />
 
                         <p:outputLabel for="password" value="Text 2:" />
-                        <p:inputText id="password" value="#{userPaginatorView.password}" required="true" label="Password"/>
+                        <p:inputText id="password" value="#{userCreatorView.password}" required="true" label="Password"/>
                         <p:message for="password" />
 
-                        <p:selectManyMenu  value="#{userPaginatorView.selectedRoles}" effect="slide" header="Categories" showHeaders="true">
+                        <p:selectManyMenu  value="#{userCreatorView.selectedRoles}" effect="slide" header="Categories" showHeaders="true">
                             <f:selectItems value="#{userPaginatorView.roles}" />
                         </p:selectManyMenu>
 
-                        <p:commandButton value="Submit" update="@form" ajax="true" actionListener="#{userPaginatorView.save}" style="margin-right:20px;" />
+                        <p:commandButton value="Submit" update="@form" ajax="true" actionListener="#{userCreatorView.save}" style="margin-right:20px;" />
                     </h:panelGrid>
                 </p:panel>
             </sec:authorize><br/>
